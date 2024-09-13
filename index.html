@@ -7,15 +7,15 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="container"></div>
+    <div class="Contenedor"></div>
         <h1>Juego del Número Mágico</h1>
         <p>Adivina el número entre 1 y 100. Tienes un máximo de 10 intentos.</p>
-        <div id="game">
-            <input type="number" id="guess" min="1" max="100" placeholder="Introduce tu número">
-            <button id="submitGuess">Enviar</button>
-            <button id="restartGame" class="hidden">Volver a Jugar</button>
-            <p class="message" id="message"></p>
-            <ul class="attempts-list" id="attemptsList"></ul>
+        <div id="juego">
+            <input type="numero" id="respuesta" min="1" max="100" placeholder="Introduce tu número">
+            <button id="enviarRespuesta">Enviar</button>
+            <button id="reiniciarJuego" class="hidden">Volver a Jugar</button>
+            <p class="mensaje" id="mensaje"></p>
+            <ul class="lista-intentos" id="lista-intentos"></ul>
         </div>
     </div>
     <script src="js/script.js"></script>
