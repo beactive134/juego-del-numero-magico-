@@ -1,9 +1,9 @@
-let randomNumber, attemptsLeft, intentos, gameOver;
+let randomNumber, intentosRestantes, intentos, gameOver;
 
 function inicio() {
     randomNumber = Math.floor(Math.random() * 100) + 1;
-    attemptsLeft = 10;
-    attempts = [];
+    intentosRestantes = 10;
+    intentos = [];
     gameOver = false;
     document.getElementById('respuesta').disabled = false;
     document.getElementById('enviarRespuesta').disabled = false;
@@ -12,11 +12,11 @@ function inicio() {
     document.getElementById('reiniciarJuego').classList.add('hidden');
 }
 
-function handleGuess() {
+function adivinar() {
     if (gameOver) return;
 
     const respuestaIngresada = document.getElementById('respuesta');
-    const respuesta = parseInt(guessInput.value, 10);
+    const respuesta = parseInt(respuestaIngresada.value, 10);
     
     if (isNaN(respuesta) || respuesta < 1 || respuesta > 100) {
         document.getElementById('mensaje').textContent = 'Por favor, introduce un número válido entre 1 y 100.';
@@ -29,31 +29,31 @@ function handleGuess() {
     }
 
     intentos.push(respuesta);
-    attemptsLeft--;
+    intentosRestantes--;
     
     let mensaje = '';
     if (respuesta === randomNumber) {
-        message = '¡Felicidades! Adivinaste el número.';
+        mensaje = '¡Felicidades! Adivinaste el número.';
         gameOver = true;
         document.getElementById('respuesta').disabled = true;
         document.getElementById('enviarRespuesta').disabled = true;
-    } else if (attemptsLeft === 0) {
-        message = `Se acabaron los intentos. El número correcto era ${randomNumber}.`;
+    } else if (intentosRestantes === 0) {
+        mensaje = `Se acabaron los intentos. El número correcto era ${randomNumber}.`;
         gameOver = true;
         document.getElementById('respuesta').disabled = true;
         document.getElementById('enviarRespuesta').disabled = true;
     } else {
-        message = guess < randomNumber ? 'El número es mayor.' : 'El número es menor.';
+        mensaje = guess < randomNumber ? 'El número es mayor.' : 'El número es menor.';
     }
 
     document.getElementById('mensaje').textContent = mensaje;
 
-    const attemptsList = document.getElementById('attemptsList');
-    attemptsList.innerHTML = '';
-    intentos.forEach(attempt => {
+    const lista-intentos = document.getElementById('lista-intentos');
+    lista-intentos.innerHTML = '';
+    intentos.forEach(intentos => {
         const listItem = document.createElement('li');
-        listItem.textContent = attempt;
-        attemptsList.appendChild(listItem);
+        listItem.textContent = intentos;
+        lista-intentos.appendChild(listItem);
     });
 
     if (gameOver) {
@@ -65,7 +65,7 @@ function reiniciarJuego() {
     inicio();
 }
 
-document.getElementById('enviarRespuesta').addEventListener('click', handleGuess);
+document.getElementById('enviarRespuesta').addEventListener('click', adivinar);
 document.getElementById('reiniciarJuego').addEventListener('click', reiniciarJuego);
 
 // Inicializar el juego cuando la página carga
