@@ -43,17 +43,17 @@ function adivinar() {
         document.getElementById('respuesta').disabled = true;
         document.getElementById('enviarRespuesta').disabled = true;
     } else {
-        mensaje = guess < randomNumber ? 'El número es mayor.' : 'El número es menor.';
+        mensaje = respuesta < randomNumber ? 'El número es mayor.' : 'El número es menor.';
     }
 
     document.getElementById('mensaje').textContent = mensaje;
 
-    const lista-intentos = document.getElementById('lista-intentos');
-    lista-intentos.innerHTML = '';
-    intentos.forEach(intentos => {
+    const listaIntentos = document.getElementById('lista-intentos');
+    listaIntentos.innerHTML = '';
+    intentos.forEach(intento => {
         const listItem = document.createElement('li');
-        listItem.textContent = intentos;
-        lista-intentos.appendChild(listItem);
+        listItem.textContent = intento;
+        listaIntentos.appendChild(listItem);
     });
 
     if (gameOver) {
