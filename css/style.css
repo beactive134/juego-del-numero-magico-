@@ -6,7 +6,7 @@ body {
     padding: 20px;
 }
 
-.container {
+.contenedor {
     max-width: 600px;
     margin: auto;
     padding: 20px;
@@ -19,7 +19,7 @@ body {
     display: none;
 }
 
-input[type="number"] {
+input[type="numero"] {
     padding: 10px;
     font-size: 16px;
     width: 100px;
@@ -33,16 +33,16 @@ button {
     cursor: pointer;
 }
 
-.attempts-list {
+.lista-intentos {
     list-style-type: none;
     padding: 0;
 }
 
-.attempts-list li {
+.lista-intentos li {
     margin: 5px 0;
 }
 
-.message {
+.mensaje {
     margin: 10px 0;
     font-weight: bold;
 }
